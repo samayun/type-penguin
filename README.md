@@ -1,9 +1,8 @@
-# Generate Swagger for TS
+### Generate Swagger for TS
 
-# installation & run app commands
+### installation & run app commands
 
-```js
-
+```
 git clone git@github.com:samayun/type-penguin.git type-penguin
 
 cd type-penguin
