@@ -3,9 +3,7 @@
 ### installation & run app commands
 
 ```
-git clone git@github.com:samayun/type-penguin.git type-penguin
-
-cd type-penguin
+git clone git@github.com:samayun/type-penguin.git type-penguin && cd type-penguin
 
 npm install
 
