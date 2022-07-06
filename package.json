@@ -9,7 +9,7 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "copy:ts": "strip-json-comments --no-whitespace tsconfig.base.json > dist/tsconfig.json && echo 'Successfully copied tsconfig.base.json'",
+    "copy:ts": "strip-json-comments --no-whitespace tsconfig.json > dist/tsconfig.json && echo 'Successfully copied tsconfig.base.json'",
     "copy:json": "strip-json-comments --no-whitespace src/swagger_output.json > dist/swagger_output.json && echo 'Successfully copied swagger_output.json'",
     "start": "node -r ./dist/pathRegister.js ./dist/main.js",
     "dev": "npm run build && concurrently \"npm:watch:*\"",

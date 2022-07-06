@@ -114,8 +114,7 @@ module.exports = function (args) {
          * setApiDefaultBasepath: if it is true then add ('/api') prefix on these path  { path: '/api/v1/categories', router: {...} }
          **/
         // TODO:PenguinJS basePath implementaion
-        console.log({ obj });
-
+        console.log({ obj, semibasePath });
         if (semibasePath) {
           for (const key in obj) {
             if (setApiDefaultBasepath) {

@@ -1909,6 +1909,7 @@ async function getImportedFiles(data, relativePath, lang = 'ts') {
     let requireds;
 
     if (lang == 'js') {
+      // old code which works on js files
       importeds = data.split(new RegExp(`import`, 'i'));
       requireds = data
         .replaceAll('\n', ' ')
@@ -1917,8 +1918,9 @@ async function getImportedFiles(data, relativePath, lang = 'ts') {
         (e) => e.split(new RegExp(`=\\s*\\t*require\\s*\\t*\\(`, 'i')).length > 1,
       );
     } else if (lang == 'ts') {
+      // trying to work with typescript files
       // const regexExportLine = `Object.defineProperty(exports, "__esModule", { value: true });\n`;
-      importeds = data.split(new RegExp(`exports.default`, 'i'));
+      importeds = data.split(new RegExp(`import`, 'i'));
       // importeds = data.split(new RegExp(regexExportLine, 'i')).slice(1);
 
       requireds = data

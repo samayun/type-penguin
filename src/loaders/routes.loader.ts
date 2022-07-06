@@ -1,6 +1,5 @@
-import loadAppModules, { IRoutePath } from '@/modules';
-import loadStaticModules from '@/staticModules';
 import { apiGlobalPrefix } from '@/config/api';
+import loadAppModules, { IRoutePath } from '@/modules';
 import { Request, Response, NextFunction, Express } from 'express';
 
 type RouteType = {
@@ -18,11 +17,7 @@ const routes: RouteType[] = [
     prefix: apiGlobalPrefix,
     handler: loadAppModules,
   },
-  {
-    name: 'Static Route',
-    type: 'static',
-    handler: (app: Express) => loadStaticModules(app),
-  },
+
   {
     name: 'Home Route',
     path: '/',
