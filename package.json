@@ -1,0 +1,42 @@
+{
+  "name": "type-penguin",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "description": "TypeScript version of penguin.js",
+  "repository": {
+    "type": "gitlab",
+    "url": "https://github.com/samayun/type-penguin"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "copy:ts": "strip-json-comments --no-whitespace tsconfig.base.json > dist/tsconfig.json && echo 'Successfully copied tsconfig.base.json'",
+    "copy:json": "strip-json-comments --no-whitespace src/swagger_output.json > dist/swagger_output.json && echo 'Successfully copied swagger_output.json'",
+    "start": "node -r ./dist/pathRegister.js ./dist/main.js",
+    "dev": "npm run build && concurrently \"npm:watch:*\"",
+    "watch:ts": "tsc-watch --noClear --onSuccess \"node -r ./dist/pathRegister.js ./dist/main.js\"",
+    "build": "npm run clean && npm run tsc && npm run copy:ts && npm run copy:json",
+    "clean": "rm -rf ./dist",
+    "generate:swagger": "node -r ./dist/pathRegister.js ./dist/swagger.js && echo 'Generating swagger json file'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.18.1",
+    "swagger-ui-express": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.2",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^6.5.1",
+    "strip-json-comments-cli": "^2.0.1",
+    "swagger-autogen": "^2.21.5",
+    "tsc-watch": "^4.6.0",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.5.4"
+  }
+}
